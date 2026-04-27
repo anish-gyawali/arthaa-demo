@@ -55,36 +55,7 @@ export default function Store() {
         body { margin: 0; }
       `}</style>
 
-      {/* Header */}
-      <header style={{
-        background: 'white',
-        borderBottom: '1px solid #EEEEF3',
-        padding: '0 24px',
-        height: 56,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <div style={{
-            width: 28, height: 28, borderRadius: 7,
-            background: 'linear-gradient(135deg, #635BFF, #DC143C)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: 14, fontWeight: 800, color: 'white',
-          }}>S</div>
-          <span style={{ fontWeight: 700, fontSize: 16, color: '#0F0F1A' }}>
-            NepalStore
-          </span>
-        </div>
-        <div style={{
-          background: '#F0EFFF', color: '#635BFF',
-          fontSize: 11, fontWeight: 600,
-          padding: '3px 10px', borderRadius: 20,
-          border: '1px solid #C7D2FE',
-        }}>
-          Powered by Arthaa
-        </div>
-      </header>
+
 
       <main style={{ maxWidth: 900, margin: '0 auto', padding: '40px 24px' }}>
 

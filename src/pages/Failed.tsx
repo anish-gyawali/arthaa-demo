@@ -4,11 +4,16 @@ export default function Failed() {
   const [params] = useSearchParams();
   const txnId = params.get("transaction_id");
   const reason = params.get("reason");
+  const checkoutToken = params.get("checkout_token");
 
   const messages: Record<string, string> = {
     user_canceled: "You cancelled the payment.",
     payment_failed: "The payment could not be completed.",
   };
+
+  const retryUrl = checkoutToken
+    ? `https://api.arthaa.dev/pay/${checkoutToken}`
+    : null;
 
   return (
     <div
@@ -88,22 +93,51 @@ export default function Failed() {
           </div>
         )}
 
-        <Link
-          to="/"
-          style={{
-            display: "inline-block",
-            background: "white",
-            color: "#635BFF",
-            padding: "10px 24px",
-            borderRadius: 8,
-            textDecoration: "none",
-            fontWeight: 600,
-            fontSize: 14,
-            border: "1px solid #635BFF",
-          }}
-        >
-          Try Again
-        </Link>
+        <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+          {retryUrl && (
+            <a
+              href={retryUrl}
+              style={{
+                display: "block",
+                background: "#635BFF",
+                color: "white",
+                padding: "10px 24px",
+                borderRadius: 8,
+                textDecoration: "none",
+                fontWeight: 600,
+                fontSize: 14,
+              }}
+            >
+              ← Try again
+            </a>
+          )}
+          <Link
+            to="/"
+            style={{
+              display: "block",
+              background: "white",
+              color: "#635BFF",
+              padding: "10px 24px",
+              borderRadius: 8,
+              textDecoration: "none",
+              fontWeight: 600,
+              fontSize: 14,
+              border: "1px solid #635BFF",
+            }}
+          >
+            Back to Store
+          </Link>
+        </div>
+
+        <div style={{ marginTop: 20, fontSize: 12, color: "#B8B8C8" }}>
+          Powered by{" "}
+          <a
+            href="https://arthaa.dev"
+            style={{ color: "#635BFF", textDecoration: "none" }}
+          >
+            Arthaa
+          </a>
+        </div>
       </div>
     </div>
   );
