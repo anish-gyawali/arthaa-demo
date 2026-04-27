@@ -100,6 +100,7 @@ Open [http://localhost:5173](http://localhost:5173)
 ---
 
 ## Project Structure
+```
 arthaa-demo/
 ├── src/
 │   ├── pages/
@@ -111,7 +112,7 @@ arthaa-demo/
 │   ├── index.js           # API calls + webhook handler
 │   └── .env.example
 └── README.md
-
+```
 ---
 
 ## How the Integration Works
